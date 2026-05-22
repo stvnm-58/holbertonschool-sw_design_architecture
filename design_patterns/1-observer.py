@@ -11,7 +11,8 @@ class NewsSubject:
     def __init__(self) -> None:
         self._subs: dict[Observer, set[str] | None] = {}
 
-    def subscribe(self, observer: Observer, topics: set[str] | None = None) -> None:
+    def subscribe(self, observer: Observer, topics:
+                  set[str] | None = None) -> None:
         if observer in self._subs:
             return  # ignore duplicate subscribe for same instance
         self._subs[observer] = topics
@@ -46,12 +47,12 @@ def main() -> None:
 
     log = LogObserver()
     email = EmailObserver()
+    sms = SmsObserver()
 
     subject.subscribe(log, topics={"sports", "breaking"})
     subject.subscribe(email)  # None = receives all topics
 
-    sms_obs = SmsObserver()
-    subject.subscribe(sms_obs, topics={"breaking"})
+    subject.subscribe(sms, topics={"breaking"})
 
     subject.notify("weather", "rain")
     subject.notify("sports", "goal")
