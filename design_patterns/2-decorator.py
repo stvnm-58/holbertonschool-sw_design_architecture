@@ -40,6 +40,7 @@ class SugarDecorator(Beverage):
     def description(self) -> str:
         return self._inner.description() + " + sugar"
 
+
 class CaramelDecorator(Beverage):
     def __init__(self, inner: Beverage) -> None:
         self._inner = inner
