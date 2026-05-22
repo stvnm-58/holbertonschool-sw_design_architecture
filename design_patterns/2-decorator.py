@@ -52,7 +52,6 @@ class CaramelDecorator(Beverage):
         return self._inner.description() + " + caramel"
 
 
-
 def main() -> None:
     cup1 = MilkDecorator(Coffee())
     print(cup1.description(), cup1.cost())
